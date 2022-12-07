@@ -59,7 +59,10 @@ fun ComposeCoffeeApp(modifier: Modifier = Modifier) {
             )
             HomeSection(
                 title = stringResource(R.string.section_best_seller_menu),
-                content = { MenuRow(dummyBestSellerMenu) }
+                content = {
+                    MenuRow(dummyBestSellerMenu)
+                },
+                modifier = modifier.padding(bottom = 8.dp)
             )
         }
     }
