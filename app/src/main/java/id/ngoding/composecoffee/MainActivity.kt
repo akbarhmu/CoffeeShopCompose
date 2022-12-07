@@ -24,10 +24,7 @@ import id.ngoding.composecoffee.model.Menu
 import id.ngoding.composecoffee.model.dummyBestSellerMenu
 import id.ngoding.composecoffee.model.dummyCategory
 import id.ngoding.composecoffee.model.dummyMenu
-import id.ngoding.composecoffee.ui.components.CategoryItem
-import id.ngoding.composecoffee.ui.components.MenuItem
-import id.ngoding.composecoffee.ui.components.SearchBar
-import id.ngoding.composecoffee.ui.components.SectionText
+import id.ngoding.composecoffee.ui.components.*
 import id.ngoding.composecoffee.ui.theme.ComposeCoffeeTheme
 
 class MainActivity : ComponentActivity() {
@@ -45,12 +42,18 @@ class MainActivity : ComponentActivity() {
 fun ComposeCoffeeApp() {
     Column(modifier = Modifier.verticalScroll(rememberScrollState())) {
         Banner()
-        SectionText(title = stringResource(id = R.string.section_category))
-        CategoryRow()
-        SectionText(title = stringResource(id = R.string.section_favorite_menu))
-        MenuRow(dummyMenu)
-        SectionText(title = stringResource(id = R.string.section_best_seller_menu))
-        MenuRow(listMenu = dummyBestSellerMenu)
+        HomeSection(
+            title = stringResource(R.string.section_category),
+            content = { CategoryRow() }
+        )
+        HomeSection(
+            title = stringResource(R.string.menu_favorite),
+            content = { MenuRow(dummyMenu)}
+        )
+        HomeSection(
+            title = stringResource(R.string.section_best_seller_menu),
+            content = { MenuRow(dummyBestSellerMenu)}
+        )
     }
 }
 
